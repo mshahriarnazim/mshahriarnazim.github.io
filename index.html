@@ -370,7 +370,31 @@ footer {
   }
   }
   }
-               </style>
+             /* FIX EQUAL PHOTO AND DETAILS HEIGHT */
+
+#home .hero {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+#home .photo {
+  min-height: 320px !important;
+  height: auto !important;
+  align-self: stretch !important;
+}
+
+#home .photo img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+#home .intro {
+  min-height: 320px !important;
+  height: auto !important;
+}  </style>
 </head>
 <body>
 

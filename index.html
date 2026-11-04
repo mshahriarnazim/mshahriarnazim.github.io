@@ -236,6 +236,49 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+/* Exam Results Design */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.result-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+}
+
+.result-card h3 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+
+.result-card p {
+  color: var(--muted);
+  margin: 8px 0;
+}
+
+.result-card .gpa {
+  color: var(--gold);
+  font-size: 42px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+.result-card span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+  }
                </style>
 </head>
 <body>
@@ -247,6 +290,7 @@ footer {
     <ul class="links" id="links">
       <li><a href="#home">হোম</a></li>
       <li><a href="#about">আমার পরিচয়</a></li>
+      <li><a href="#results">পরীক্ষার ফলাফল</a></li>
       <li><a href="#life">আমার জীবন</a></li>
       <li><a href="#gallery">ছবির গ্যালারি</a></li>
       <li><a href="#blog">ব্লগ</a></li>
@@ -298,6 +342,31 @@ footer {
   <div class="wrap">
     <div class="sec-head"><h2>আমার জীবন</h2><p>জীবনের গুরুত্বপূর্ণ মুহূর্ত ও স্মৃতিগুলো সময়ের ক্রমে।</p></div>
     <div class="tl" id="timeline"></div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>আমার পরীক্ষার ফলাফল</h2>
+      <p>শিক্ষাজীবনের অর্জন ও সাফল্য</p>
+    </div>
+
+    <div class="result-grid">
+      <div class="result-card">
+        <h3>দাখিল</h3>
+        <p>পরীক্ষার সাল: ২০২২</p>
+        <div class="gpa">4.78</div>
+        <span>GPA · ৫.০০-এর মধ্যে</span>
+      </div>
+
+      <div class="result-card">
+        <h3>আলিম</h3>
+        <p>পরীক্ষার সাল: ২০২৪</p>
+        <div class="gpa">5.00</div>
+        <span>GPA · ৫.০০-এর মধ্যে</span>
+      </div>
+    </div>
   </div>
 </section>
 <section id="books">

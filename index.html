@@ -568,7 +568,7 @@ $('#chips').innerHTML = SITE.interests.map(i => `<span class="chip">${esc(i)}</s
 
 /* Life */
 $('#timeline').innerHTML = SITE.life.map(([y,t,d]) =>
-  `<div class="ev"><time>${esc(y)}</time><h3>${esc(t)}</h3><p style="display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden">${esc(d)}</p><details><summary style="cursor:pointer;color:var(--gold);font-weight:700">আরও পড়ুন</summary><p>${esc(d)}</p></details></div>`
+  `<div class="ev"><time>${esc(y)}</time><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`
 
 /* Gallery */
 let cur = SITE.albums[0];

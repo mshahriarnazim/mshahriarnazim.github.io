@@ -394,7 +394,104 @@ margin: 5px 0;
 #home .intro {
   min-height: 320px !important;
   height: auto !important;
-}  </style>
+} 
+ /* ===== NEW GALLERY DESIGN ===== */
+
+.album-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.album-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 20px;
+  background: var(--paper);
+}
+
+.album-card h3 {
+  font-size: 22px;
+  margin: 0 0 18px;
+}
+
+.album-preview {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.album-preview img {
+  width: 48%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.album-info {
+  flex: 1;
+}
+
+.album-info h4 {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+
+.album-info p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.album-more {
+  display: inline-block;
+  color: var(--link);
+  text-decoration: none;
+  margin-top: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.album-photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 22px;
+}
+
+.album-photo {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.album-photo img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+@media(max-width:600px) {
+  .album-card {
+    padding: 15px;
+  }
+
+  .album-preview {
+    gap: 12px;
+  }
+
+  .album-preview img {
+    width: 48%;
+    height: 160px;
+  }
+
+  .album-info h4 {
+    font-size: 17px;
+  }
+  } 
+</style>
 </head>
 <body>
 
@@ -638,10 +735,23 @@ const SITE = {
   ],
   albums: ["সব", "ব্যক্তিগত", "পরিবার", "ভ্রমণ", "বন্ধুরা"],
   gallery: [                            // ← {album, src:"images/a.jpg", cap, emoji}  (src খালি থাকলে রঙিন প্লেসহোল্ডার দেখাবে)
-    {album:"ব্যক্তিগত",src:"personal1.jpg",cap:"আমার একটি স্মৃতি",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"Shahria%202.jpg",cap:"ব্যক্তিগত মুহূর্ত",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"shahria%201.jpg",cap:"স্মরণীয় সময়",emoji:"📸"},
-    {album:"ভ্রমণ",src:"",cap:"নদীর পাড়ে সকাল",emoji:"🌅"},
+    
+{album:"ব্যক্তিগত",src:"personal1.jpg",cap:"ব্যক্তিগত স্মৃতি ১",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"Shahria%202.jpg",cap:"ব্যক্তিগত স্মৃতি ২",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"IMG-20260918-WA0013.jpg",cap:"ব্যক্তিগত স্মৃতি ৩",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"1789311066343.jpg",cap:"ব্যক্তিগত স্মৃতি ৪",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"InShot_20260911_152548171.jpg",cap:"ব্যক্তিগত স্মৃতি ৫",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"InShot_20260907_213124947.jpg",cap:"ব্যক্তিগত স্মৃতি ৬",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"InShot_20260907_211227103.jpg",cap:"ব্যক্তিগত স্মৃতি ৭",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"IMG_2909.HEIC",cap:"ব্যক্তিগত স্মৃতি ৮",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"file_000000009bcc82119d7a5323f38bcbf8.png",cap:"ব্যক্তিগত স্মৃতি ৯",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"InShot_20260826_115926031.jpg",cap:"ব্যক্তিগত স্মৃতি ১০",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"20260821_174546.jpg",cap:"ব্যক্তিগত স্মৃতি ১১",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"20260820_151718.jpg",cap:"ব্যক্তিগত স্মৃতি ১২",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"InShot_20260818_094923553.jpg",cap:"ব্যক্তিগত স্মৃতি ১৩",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"20260809_123531.jpg",cap:"ব্যক্তিগত স্মৃতি ১৪",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"IMG_20260806_101826_728.jpg",cap:"ব্যক্তিগত স্মৃতি ১৫",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"Screenshot_20260725_112248_X.jpg",cap:"ব্যক্তিগত স্মৃতি ১৬",emoji:"📸"},
     {album:"পরিবার",src:"",cap:"ঈদের আনন্দ",emoji:"🌙"},
     {album:"বন্ধুরা",src:"",cap:"স্মরণীয় দিন",emoji:"📸"}
   ],
@@ -712,27 +822,87 @@ $('#timeline').innerHTML = SITE.life.map(([y,t,d]) =>
 ).join('');
 
 /* Gallery */
+/* Gallery */
 let cur = SITE.albums[0];
-function drawTabs(){
-  $('#tabs').innerHTML = SITE.albums.map(a => `<button class="tab ${a===cur?'on':''}" data-a="${esc(a)}">${esc(a)}</button>`).join('');
+let expandedAlbum = "";
+
+function drawTabs() {
+  $('#tabs').innerHTML = SITE.albums.map(a =>
+    `<button class="tab ${a===cur?'on':''}" data-a="${esc(a)}">${esc(a)}</button>`
+  ).join('');
 }
-function drawGrid(){
-  const items = SITE.gallery.map((g,i)=>({...g,i})).filter(g => cur===SITE.albums[0] || g.album===cur);
-  $('#grid').innerHTML = items.map(g => `
-    <button class="tile" data-i="${g.i}" style="background:${tints[g.i%tints.length]}" aria-label="${esc(g.cap)}">
-      ${g.src ? `<img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy">` : `<div class="ph">${g.emoji||'🖼️'}</div>`}
-      <span>${esc(g.cap)}</span>
-    </button>`).join('');
+
+function drawGrid() {
+  const albums = SITE.albums.filter(a => a !== "সব" && (cur === "সব" || cur === a));
+
+  $('#grid').innerHTML = `<div class="album-list">${
+    albums.map(album => {
+      const photos = SITE.gallery.filter(g => g.album === album);
+      if (!photos.length) return '';
+
+      const first = photos[0];
+      const opened = expandedAlbum === album;
+
+      return `
+        <div class="album-card">
+          <h3>${esc(album)}</h3>
+
+          <div class="album-preview">
+            <img src="${esc(first.src)}" alt="${esc(first.cap)}">
+
+            <div class="album-info">
+              <h4>${esc(album)} ছবি</h4>
+              <p>অ্যালবামের প্রথম ছবি ও বাকি ছবির সংখ্যা: ${photos.length}</p>
+              <a class="album-more" data-album="${esc(album)}">
+                ${opened ? 'বন্ধ করুন ↑' : 'আরও দেখুন →'}
+              </a>
+            </div>
+          </div>
+
+          ${opened ? `
+            <div class="album-photos">
+              ${photos.map((g,i) => `
+                <div class="album-photo">
+                  <img src="${esc(g.src)}" alt="${esc(g.cap)}" loading="lazy">
+                  <p>${esc(g.cap)}</p>
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }).join('')
+  }</div>`;
 }
-$('#tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if(!b) return; cur = b.dataset.a; drawTabs(); drawGrid(); });
-$('#grid').addEventListener('click', e => {
-  const t = e.target.closest('.tile'); if(!t) return;
-  const g = SITE.gallery[+t.dataset.i];
-  $('#lbFig').innerHTML = (g.src ? `<img src="${esc(g.src)}" alt="${esc(g.cap)}">`
-    : `<div class="bigph" style="background:${tints[t.dataset.i%tints.length]}">${g.emoji||'🖼️'}</div>`) + `<figcaption>${esc(g.cap)}</figcaption>`;
-  $('#lb').classList.add('open');
+
+$('#tabs').addEventListener('click', e => {
+  const b = e.target.closest('.tab');
+  if (!b) return;
+  cur = b.dataset.a;
+  expandedAlbum = "";
+  drawTabs();
+  drawGrid();
 });
-drawTabs(); drawGrid();
+
+$('#grid').addEventListener('click', e => {
+  const more = e.target.closest('.album-more');
+
+  if (more) {
+    const album = more.dataset.album;
+    expandedAlbum = expandedAlbum === album ? "" : album;
+    drawGrid();
+    return;
+  }
+
+  const img = e.target.closest('.album-photo img, .album-preview img');
+  if (img) {
+    $('#lbFig').innerHTML = `<img src="${esc(img.src)}" alt="">`;
+    $('#lb').classList.add('open');
+  }
+});
+
+drawTabs();
+drawGrid();
 
 /* Blog */
 $('#posts').innerHTML = SITE.posts.map((p,i) => `

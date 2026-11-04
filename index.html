@@ -277,6 +277,97 @@ footer {
 @media (max-width: 600px) {
   .result-grid {
     grid-template-columns: 1fr;
+  }/* PROFILE PHOTO AND DETAILS SIDE BY SIDE */
+
+#home .hero {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  gap: 22px !important;
+  text-align: left !important;
+}
+
+#home .photo {
+  width: 40% !important;
+  flex: 0 0 40% !important;
+  position: relative !important;
+  aspect-ratio: auto !important;
+  align-self: stretch !important;
+}
+
+#home .photo::before {
+  display: none !important;
+}
+
+#home .photo img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 18px !important;
+}
+
+#home .intro {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  text-align: left !important;
+}
+
+#home .intro .bio {
+  max-width: none !important;
+  line-height: 1.8;
+}
+
+#home .cta {
+  justify-content: flex-start !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  #home .hero {
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  #home .photo {
+    width: 40% !important;
+    flex: 0 0 40% !important;
+    min-height: 300px;
+  }
+
+  #home .intro {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  #home .intro h1 {
+    font-size: 20px !important;
+  }
+
+  #home .intro .bio {
+    font-size: 13px !important;
+  }
+
+  #home .profile-details {
+    font-size: 12px !important;
+    overflow-wrap: anywhere;
+  }
+
+  #home .cta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  #home .btn {
+    font-size: 12px !important;
+    padding: 8px 10px !important;
+  }
   }
   }
                </style>
@@ -309,7 +400,7 @@ footer {
     <div class="intro">
       <p class="hi">আসসালামু আলাইকুম, স্বাগতম</p>
       <h1>মুহাম্মাদ শাহরিয়ার নাজিম</h1>
-      <p class="en">Muhammad Shahriar Nazim</p>
+      
       <p class="bio" id="heroBio"></p>
 
       <div class="profile-details">
@@ -474,7 +565,7 @@ footer {
 const SITE = {
   email: "your@email.com",              // ← আপনার ইমেইল
   photo: "me.jpg",                          // ← ছবির ফাইলের নাম, যেমন "images/me.jpg" (খালি থাকলে ডিফল্ট ছবি)
-  heroBio: "আমার জীবনের পথচলা, স্মৃতি, ছবি আর ভাবনাগুলো এক জায়গায় সাজিয়ে রাখার ডিজিটাল ঘর।",
+  heroBio: "শিক্ষার্থী ও লেখক। ইসলামি শিক্ষা, ইতিহাস ও জ্ঞানচর্চার প্রতি আগ্রহী। জ্ঞান অর্জন ও লেখালেখির মাধ্যমে এগিয়ে যাওয়াই আমার লক্ষ্য।",
   about: [
   "আমি মুহাম্মদ শাহরিয়ার নাজিম। একজন শিক্ষার্থী, লেখক ও জ্ঞানপিপাসু মানুষ। জ্ঞান অর্জন, নতুন কিছু শেখা এবং ইতিহাসের অজানা অধ্যায় আবিষ্কার করার প্রতি আমার বিশেষ আগ্রহ রয়েছে।",
   "ইসলামি শিক্ষা, পবিত্র কুরআন, হাদিস, ইসলামের ইতিহাস ও ঐতিহ্য আমার আগ্রহের অন্যতম বিষয়। পাশাপাশি বিশ্ব ইতিহাস, সভ্যতা, সংস্কৃতি, সাহিত্য ও প্রযুক্তি সম্পর্কেও জানতে ভালোবাসি।",

@@ -567,8 +567,12 @@ $('#facts').innerHTML = SITE.facts.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v
 $('#chips').innerHTML = SITE.interests.map(i => `<span class="chip">${esc(i)}</span>`).join('');
 
 /* Life */
+/* Life */
 $('#timeline').innerHTML = SITE.life.map(([y,t,d]) =>
- `<div class="ev"><time>${esc(y)}</time><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`
+  `<div class="ev"><time>${esc(y)}</time><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`
+).join('');
+
+/* Gallery */
 
 /* Gallery */
 let cur = SITE.albums[0];

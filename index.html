@@ -639,30 +639,11 @@ margin: 5px 0;
   <div class="wrap">
     <div class="sec-head">
       <h2>আমার ভিডিও গ্যালারি</h2>
-      <p>আমার নির্বাচিত ভিডিও ও স্মৃতির সংগ্রহ।</p>
+      <p>আমার নির্বাচিত ভিডিও ও স্মৃতির সংগ্রহ</p>
     </div>
 
-    <div style="background:var(--paper);padding:20px;border-radius:18px;border:1px solid var(--line);">
-
-      <video controls playsinline preload="metadata"
-        style="width:100%;border-radius:12px;background:#000;">
-        <source src="Videos/যে জাতি নিজের ইতিহাস জানে না_ সে জাতি কখনো সফলতা অর্জন করতে প.mp4" type="video/mp4">
-        আপনার ব্রাউজার ভিডিও চালাতে পারছে না।
-      </video>
-
-      <h3 style="margin-top:18px;">
-        যে জাতি নিজের ইতিহাস জানে না
-      </h3>
-
-      <p style="color:var(--muted);margin-top:8px;">
-        নিজের ইতিহাস জানা একটি জাতির আত্মপরিচয় ও ভবিষ্যৎ গঠনের গুরুত্বপূর্ণ ভিত্তি।
-      </p>
-
-      <p style="color:var(--teal);margin-top:10px;">
-        প্রকাশিত: ৪ নভেম্বর ২০২৬
-      </p>
-
-    </div>
+    <div class="tabs" id="videoTabs"></div>
+    <div class="album-list" id="videoGrid"></div>
   </div>
 </section>
   <div class="wrap">
@@ -755,6 +736,15 @@ const SITE = {
     {album:"পরিবার",src:"",cap:"ঈদের আনন্দ",emoji:"🌙"},
     {album:"বন্ধুরা",src:"",cap:"স্মরণীয় দিন",emoji:"📸"}
   ],
+  videoAlbums: ["ব্যক্তিগত", "ইতিহাস", "বন্ধুবান্ধব", "অন্যান্য"],
+videos: [
+  {
+    album: "ইতিহাস",
+    src: "Videos/যে জাতি নিজের ইতিহাস জানে না_ সে জাতি কখনো সফলতা অর্জন করতে পারে না.mp4",
+    title: "যে জাতি নিজের ইতিহাস জানে না",
+    desc: "নিজের ইতিহাস জানা একটি জাতির আত্মপরিচয় ও ভবিষ্যৎ গঠনের গুরুত্বপূর্ণ ভিত্তি।"
+  }
+],
   posts: [                              // ← {title, date, text:[অনুচ্ছেদ...]}
     {title:"আমার প্রথম লেখা",date:"আজকের তারিখ",text:["এখানে আপনার প্রথম ব্লগ পোস্ট লিখুন। প্রতিটি অনুচ্ছেদ আলাদা লাইনে রাখুন।","আপনার অভিজ্ঞতা, শেখা বিষয় বা প্রিয় স্মৃতি লিখতে পারেন।"]},
     {title:"যা আমি শিখেছি",date:"আজকের তারিখ",text:["জীবন থেকে শেখা গুরুত্বপূর্ণ শিক্ষাগুলো এখানে লিখুন।"]},
@@ -822,6 +812,40 @@ $('#timeline').innerHTML = SITE.life.map(([y,t,d]) =>
 ).join('');
 
 /* Gallery */
+  /* VIDEO GALLERY */
+
+let currentVideoAlbum = "ইতিহাস";
+
+function drawVideoTabs() {
+  $("#videoTabs").innerHTML = SITE.videoAlbums.map(a =>
+    `<button class="tab ${a === currentVideoAlbum ? 'on' : ''}" data-video-album="${esc(a)}">${esc(a)}</button>`
+  ).join("");
+}
+
+function drawVideoGrid() {
+  const videos = SITE.videos.filter(v => v.album === currentVideoAlbum);
+
+  $("#videoGrid").innerHTML = videos.map(v => `
+    <div class="album-card">
+      <h3>${esc(v.title)}</h3>
+      <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;background:#000;">
+        <source src="${esc(v.src)}" type="video/mp4">
+      </video>
+      <p>${esc(v.desc)}</p>
+    </div>
+  `).join("");
+}
+
+$("#videoTabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-video-album]");
+  if (!b) return;
+  currentVideoAlbum = b.dataset.videoAlbum;
+  drawVideoTabs();
+  drawVideoGrid();
+});
+
+drawVideoTabs();
+drawVideoGrid();
 /* Gallery */
 let cur = SITE.albums[0];
 let expandedAlbum = "";

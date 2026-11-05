@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>আমার গোপন ডায়েরি</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#101827;color:#fff;
+ font-family:Arial,sans-serif;padding:20px;
+}
+.container{
+ max-width:650px;margin:50px auto;
+ background:#182438;border:1px solid #b18a43;
+ border-radius:18px;padding:28px;text-align:center;
+}
+.pen{font-size:65px}
+h1{color:#e8bd6a}
+p{color:#ddd;line-height:1.9}
+input,textarea{
+ width:100%;padding:14px;margin:10px 0;
+ border-radius:9px;border:1px solid #b18a43;
+ background:#101827;color:white;font-size:16px;
+}
+button{
+ padding:13px 25px;background:#b18a43;
+ color:#101827;border:0;border-radius:8px;
+ font-size:16px;font-weight:bold;cursor:pointer;
+}
+#diary{display:none;text-align:left}
+a{color:#e8bd6a}
+</style>
+</head>
+<body>
+<div class="container">
+ <div class="pen">🖋️</div>
+ <h1>আমার গোপন ডায়েরি</h1>
+ <p>জীবনের কিছু গল্প, কিছু স্মৃতি, কিছু অনুভূতি—
+ যা শুধু নিজের জন্যই তুলে রাখা।</p>
+
+ <div id="login">
+  <p>ব্যক্তিগত ডায়েরিতে প্রবেশ করতে পাসওয়ার্ড দিন।</p>
+  <input id="password" type="password"
+   placeholder="ডায়েরির পাসওয়ার্ড">
+  <button onclick="unlock()">প্রবেশ করুন</button>
+  <p id="message"></p>
+ </div>
+
+ <div id="diary">
+  <h2>আমার ব্যক্তিগত স্মৃতি</h2>
+  <p>এখানে তোমার ডায়েরির লেখা থাকবে।</p>
+  <textarea id="note" rows="10"
+   placeholder="তোমার স্মৃতি লিখো..."></textarea>
+  <button onclick="saveNote()">লেখা সংরক্ষণ</button>
+  <button onclick="lock()">লক করুন</button>
+  <p id="saved"></p>
+ </div>
+</div>
+
+<script>
+const DIARY_PASSWORD = "mshahriarnazim21067492";
+
+function unlock(){
+ if(document.getElementById("password").value
+ === DIARY_PASSWORD){
+  document.getElementById("login").style.display="none";
+  document.getElementById("diary").style.display="block";
+  document.getElementById("note").value =
+  localStorage.getItem("myDiaryNote") || "";
+ }else{
+  document.getElementById("message").textContent=
+  "ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।";
+ }
+}
+function saveNote(){
+ localStorage.setItem("myDiaryNote",
+ document.getElementById("note").value);
+ document.getElementById("saved").textContent=
+ "লেখা সংরক্ষিত হয়েছে।";
+}
+function lock(){
+ document.getElementById("diary").style.display="none";
+ document.getElementById("login").style.display="block";
+ document.getElementById("password").value="";
+}
+</script>
+</body>
+</html>

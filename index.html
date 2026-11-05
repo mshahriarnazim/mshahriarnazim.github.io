@@ -564,6 +564,28 @@ margin: 5px 0;
   max-width: 100%;
   margin: 20px 0 12px;
 }
+  /* Expanded Life Event Story */
+.life-event-card:has(details[open]) {
+  grid-column: 1 / -1;
+  display: block;
+}
+
+.life-event-card:has(details[open]) .life-event-info {
+  width: 100%;
+  max-width: 100%;
+}
+
+.life-event-story,
+.life-event-story p {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  word-spacing: normal;
+  letter-spacing: normal;
+  line-height: 1.7;
+  margin: 0 0 8px !important;
+  box-sizing: border-box;
+}
 </style>
 </head>
 <body>

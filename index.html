@@ -491,6 +491,56 @@ margin: 5px 0;
     font-size: 17px;
   }
   } 
+  /* Life Events Section */
+.life-events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.life-event-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.life-event-card img {
+  width: 115px;
+  height: 105px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.life-event-info {
+  flex: 1;
+}
+
+.life-event-info h3 {
+  margin: 0 0 7px;
+  font-size: 18px;
+}
+
+.life-event-info p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.life-event-info a {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media(max-width:600px) {
+  .life-events-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body>
@@ -557,7 +607,70 @@ margin: 5px 0;
     <div class="tl" id="timeline"></div>
   </div>
 </section>
-<section id="education">
+  <!-- Life Events Section -->
+  <!-- Life Events Section -->
+<section id="life-events">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>জীবনের উল্লেখযোগ্য ঘটনাবলী</h2>
+      <p>আমার জীবনের স্মরণীয় কিছু ভ্রমণ ও কাজের গল্প</p>
+    </div>
+
+    <div class="life-events-grid">
+
+      <div class="life-event-card">
+        <img src="sylhet.jpg" alt="সিলেট ভ্রমণ">
+        <div class="life-event-info">
+          <h3>সিলেট ভ্রমণ</h3>
+          <p>সিলেটে কাটানো স্মরণীয় দিনগুলোর গল্প।</p>
+          <details>
+            <summary>আরও পড়ুন →</summary>
+            <p>সিলেট ভ্রমণের বিস্তারিত স্মৃতিচারণ এখানে যুক্ত করা হবে।</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="life-event-card">
+        <img src="charkhali.jpg" alt="চড়খালি দ্বীপ ভ্রমণ">
+        <div class="life-event-info">
+          <h3>চড়খালি দ্বীপ ভ্রমণ</h3>
+          <p>দ্বীপ ভ্রমণের কিছু স্মরণীয় মুহূর্ত।</p>
+          <details>
+            <summary>আরও পড়ুন →</summary>
+            <p>চড়খালি দ্বীপ ভ্রমণের বিস্তারিত এখানে যুক্ত করা হবে।</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="life-event-card">
+        <img src="chandpur.jpg" alt="চাঁদপুর ভ্রমণ">
+        <div class="life-event-info">
+          <h3>চাঁদপুর ভ্রমণ</h3>
+          <p>চাঁদপুর ভ্রমণের স্মৃতি ও অভিজ্ঞতা।</p>
+          <details>
+            <summary>আরও পড়ুন →</summary>
+            <p>চাঁদপুর ভ্রমণের বিস্তারিত এখানে যুক্ত করা হবে।</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="life-event-card">
+        <img src="book.jpg" alt="বই সংকলন">
+        <div class="life-event-info">
+          <h3>বই সংকলন</h3>
+          <p>বই লেখা ও সংকলনের পেছনের গল্প।</p>
+          <details>
+            <summary>আরও পড়ুন →</summary>
+            <p>বই সংকলনের বিস্তারিত এখানে যুক্ত করা হবে।</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <section id="education">
+
   <div class="wrap">
     <div class="sec-head">
       <h2>বর্তমান শিক্ষাগত যোগ্যতা</h2>

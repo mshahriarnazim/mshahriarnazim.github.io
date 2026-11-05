@@ -4,86 +4,352 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>আমার গোপন ডায়েরি</title>
+
 <style>
 *{box-sizing:border-box}
+
 body{
- margin:0;background:#101827;color:#fff;
- font-family:Arial,sans-serif;padding:20px;
+  margin:0;
+  padding:20px 14px;
+  background:#101827;
+  color:#fff;
+  font-family:Arial,sans-serif;
 }
+
 .container{
- max-width:650px;margin:50px auto;
- background:#182438;border:1px solid #b18a43;
- border-radius:18px;padding:28px;text-align:center;
+  width:100%;
+  max-width:720px;
+  margin:25px auto;
+  padding:24px;
+  background:#182438;
+  border:1px solid #b18a43;
+  border-radius:16px;
 }
-.pen{font-size:65px}
-h1{color:#e8bd6a}
-p{color:#ddd;line-height:1.9}
+
+.header{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.pen{font-size:42px}
+
+h1{
+  color:#e8bd6a;
+  font-size:25px;
+  margin:8px 0;
+}
+
+.subtitle{
+  color:#cbd5e1;
+  font-size:14px;
+  line-height:1.8;
+}
+
+h2{
+  color:#e8bd6a;
+  font-size:20px;
+}
+
 input,textarea{
- width:100%;padding:14px;margin:10px 0;
- border-radius:9px;border:1px solid #b18a43;
- background:#101827;color:white;font-size:16px;
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:1px solid #b18a43;
+  border-radius:8px;
+  background:#101827;
+  color:white;
+  font-size:15px;
 }
+
 button{
- padding:13px 25px;background:#b18a43;
- color:#101827;border:0;border-radius:8px;
- font-size:16px;font-weight:bold;cursor:pointer;
+  padding:11px 17px;
+  border:0;
+  border-radius:8px;
+  background:#b18a43;
+  color:#101827;
+  font-weight:bold;
+  font-size:14px;
+  cursor:pointer;
 }
-#diary{display:none;text-align:left}
-a{color:#e8bd6a}
+
+button.secondary{
+  background:#263752;
+  color:#fff;
+  border:1px solid #b18a43;
+}
+
+.login-box{
+  background:#1b2b43;
+  padding:18px;
+  border-radius:12px;
+  margin-top:15px;
+}
+
+.login-box button{
+  width:100%;
+  margin-top:8px;
+}
+
+#dashboard,#editor{
+  display:none;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin:18px 0;
+}
+
+.category{
+  background:#1b2b43;
+  border:1px solid #34445d;
+  border-radius:11px;
+  padding:17px 10px;
+  text-align:center;
+  cursor:pointer;
+  min-height:95px;
+}
+
+.category .emoji{
+  font-size:27px;
+  display:block;
+  margin-bottom:7px;
+}
+
+.category strong{
+  color:#f3d69b;
+  font-size:14px;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.actions button{flex:1}
+
+textarea{
+  min-height:180px;
+  resize:vertical;
+  line-height:1.8;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.small{
+  font-size:12px;
+  color:#cbd5e1;
+}
+
+#message{
+  color:#e8bd6a;
+  font-size:13px;
+  text-align:center;
+}
+
+@media(max-width:480px){
+  .container{
+    padding:17px;
+    margin:12px auto;
+  }
+  h1{font-size:22px}
+  .category-grid{gap:9px}
+  .category{padding:14px 7px}
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
- <div class="pen">🖋️</div>
- <h1>আমার গোপন ডায়েরি</h1>
- <p>জীবনের কিছু গল্প, কিছু স্মৃতি, কিছু অনুভূতি—
- যা শুধু নিজের জন্যই তুলে রাখা।</p>
 
- <div id="login">
-  <p>ব্যক্তিগত ডায়েরিতে প্রবেশ করতে পাসওয়ার্ড দিন।</p>
-  <input id="password" type="password"
-   placeholder="ডায়েরির পাসওয়ার্ড">
-  <button onclick="unlock()">প্রবেশ করুন</button>
-  <p id="message"></p>
- </div>
+  <div class="header">
+    <div class="pen">🖋️</div>
+    <h1>আমার গোপন ডায়েরি</h1>
+    <p class="subtitle">
+      জীবনের গল্প, স্মৃতি, অনুভূতি ও অজানা কথার
+      ব্যক্তিগত সংগ্রহশালা।
+    </p>
+  </div>
 
- <div id="diary">
-  <h2>আমার ব্যক্তিগত স্মৃতি</h2>
-  <p>এখানে তোমার ডায়েরির লেখা থাকবে।</p>
-  <textarea id="note" rows="10"
-   placeholder="তোমার স্মৃতি লিখো..."></textarea>
-  <button onclick="saveNote()">লেখা সংরক্ষণ</button>
-  <button onclick="lock()">লক করুন</button>
-  <p id="saved"></p>
- </div>
+  <!-- LOGIN INTERFACE -->
+  <div id="login">
+
+    <div class="login-box">
+      <h2>🔐 ডায়েরিতে প্রবেশ</h2>
+
+      <input id="password"
+        type="password"
+        placeholder="আপনার পাসওয়ার্ড লিখুন">
+
+      <button onclick="showConnectionMessage()">
+        প্রবেশ করুন
+      </button>
+
+      <p id="message">
+        ব্যক্তিগত ডায়েরিতে প্রবেশের জন্য পাসওয়ার্ড দিন।
+      </p>
+    </div>
+
+  </div>
+
+  <!-- MAIN DASHBOARD -->
+  <div id="dashboard">
+
+    <div class="topbar">
+      <h2>📚 আমার ডায়েরি</h2>
+      <span class="small" id="roleLabel"></span>
+    </div>
+
+    <p class="subtitle">
+      নিজের চিন্তা, স্মৃতি ও গুরুত্বপূর্ণ কথাগুলো
+      বিষয় অনুযায়ী সাজিয়ে রাখুন।
+    </p>
+
+    <div class="category-grid" id="categories">
+
+      <div class="category">
+        <span class="emoji">💭</span>
+        <strong>ব্যক্তিগত ভাবনা</strong>
+      </div>
+
+      <div class="category">
+        <span class="emoji">🌿</span>
+        <strong>জীবনের শিক্ষা</strong>
+      </div>
+
+      <div class="category">
+        <span class="emoji">❤️</span>
+        <strong>অনুভূতি ও স্মৃতি</strong>
+      </div>
+
+      <div class="category">
+        <span class="emoji">📖</span>
+        <strong>গুরুত্বপূর্ণ কথা</strong>
+      </div>
+
+      <div class="category">
+        <span class="emoji">🎯</span>
+        <strong>ভবিষ্যৎ পরিকল্পনা</strong>
+      </div>
+
+      <div class="category">
+        <span class="emoji">🤲</span>
+        <strong>দোয়া ও আমল</strong>
+      </div>
+
+      <div class="category">
+        <span class="emoji">💡</span>
+        <strong>নতুন ধারণা</strong>
+      </div>
+
+      <div class="category">
+        <span class="emoji">📝</span>
+        <strong>অন্যান্য লেখা</strong>
+      </div>
+
+    </div>
+
+    <div id="adminActions">
+      <button class="secondary" onclick="showAddCategory()">
+        ＋ নতুন ক্যাটাগরি যোগ করুন
+      </button>
+    </div>
+
+    <div id="addCategory" style="display:none;margin-top:15px">
+      <input id="newCategory" placeholder="নতুন ক্যাটাগরির নাম">
+      <button onclick="addCategory()">যোগ করুন</button>
+    </div>
+
+    <div class="actions">
+      <button class="secondary" onclick="lockDiary()">
+        🔒 ডায়েরি লক করুন
+      </button>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY EDITOR -->
+  <div id="editor">
+    <h2 id="editorTitle">ব্যক্তিগত ভাবনা</h2>
+
+    <textarea
+      id="entry"
+      placeholder="এখানে তোমার লেখা থাকবে..."
+    ></textarea>
+
+    <div class="actions" id="editActions">
+      <button>লেখা সংরক্ষণ</button>
+      <button class="secondary" onclick="backToDashboard()">
+        ফিরে যান
+      </button>
+    </div>
+
+    <div id="readActions" style="display:none">
+      <button class="secondary" onclick="backToDashboard()">
+        ফিরে যান
+      </button>
+    </div>
+  </div>
+
 </div>
 
 <script>
-const DIARY_PASSWORD = "mshahriarnazim21067492";
+function showConnectionMessage(){
+  document.getElementById("message").textContent =
+    "অনলাইন লগইন ও পাসওয়ার্ড যাচাই সংযোগ এখনো স্থাপন করা হয়নি।";
+}
 
-function unlock(){
- if(document.getElementById("password").value
- === DIARY_PASSWORD){
-  document.getElementById("login").style.display="none";
-  document.getElementById("diary").style.display="block";
-  document.getElementById("note").value =
-  localStorage.getItem("myDiaryNote") || "";
- }else{
-  document.getElementById("message").textContent=
-  "ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।";
- }
+function showAddCategory(){
+  document.getElementById("addCategory").style.display="block";
 }
-function saveNote(){
- localStorage.setItem("myDiaryNote",
- document.getElementById("note").value);
- document.getElementById("saved").textContent=
- "লেখা সংরক্ষিত হয়েছে।";
+
+function addCategory(){
+  const input=document.getElementById("newCategory");
+  const name=input.value.trim();
+
+  if(!name)return;
+
+  const card=document.createElement("div");
+  card.className="category";
+
+  const title=document.createElement("strong");
+  title.textContent=name;
+
+  const emoji=document.createElement("span");
+  emoji.className="emoji";
+  emoji.textContent="📝";
+
+  card.appendChild(emoji);
+  card.appendChild(title);
+
+  document.getElementById("categories").appendChild(card);
+
+  input.value="";
+  document.getElementById("addCategory").style.display="none";
 }
-function lock(){
- document.getElementById("diary").style.display="none";
- document.getElementById("login").style.display="block";
- document.getElementById("password").value="";
+
+function backToDashboard(){
+  document.getElementById("editor").style.display="none";
+  document.getElementById("dashboard").style.display="block";
 }
+
+function lockDiary(){
+  document.getElementById("dashboard").style.display="none";
+  document.getElementById("editor").style.display="none";
+  document.getElementById("login").style.display="block";
+  document.getElementById("password").value="";
+}
+
 </script>
+
 </body>
 </html>

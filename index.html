@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
 :root{
   --ink:#0f1a2b; --ink2:#18263d; --mist:#eef2f6; --paper:#ffffff;
@@ -143,11 +143,11 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 /* contact */
 .contact{display:grid;grid-template-columns:1fr 1.1fr;gap:36px}
 .ways{display:grid;gap:12px;align-content:start}
-.way{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 18px;text-decoration:none;transition:.2s}
+.way{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 18px;text-decoration:none;transition:.2s;color:var(--text)}
 .way:hover{border-color:var(--teal);transform:translateX(4px)}
-.way i{font-style:normal;font-size:24px;width:44px;height:44px;flex-shrink:0;display:grid;place-items:center;border-radius:12px;background:var(--mist)}
+.way i{font-style:normal;font-size:24px;width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;border-radius:12px;background:var(--mist)}
+.way span{min-width:0;overflow-wrap:anywhere}
 .way small{display:block;color:var(--muted);line-height:1.3}
-
 form{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:14px}
 label{font-weight:600;font-size:15px}
 input,textarea{width:100%;margin-top:4px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--mist);color:var(--text);font:inherit}
@@ -1074,73 +1074,18 @@ videos: [
     {title:"একটি স্মরণীয় ভ্রমণ",date:"আজকের তারিখ",text:["আপনার প্রিয় ভ্রমণের গল্প এখানে লিখুন।"]}
   ],
   contacts: [
-  [
-    "fa-regular fa-envelope",
-    "Email",
-    "muhammadshahriarnazim@gmail.com",
-    "mailto:muhammadshahriarnazim@gmail.com"
-  ],
-  [
-    "fa-brands fa-whatsapp",
-    "WhatsApp",
-    "01994171144",
-    "https://wa.me/8801994171144"
-  ],
-  [
-    "fa-solid fa-phone",
-    "Phone",
-    "01994171144",
-    "tel:+8801994171144"
-  ],
-  [
-    "fa-brands fa-telegram",
-    "Telegram",
-    "@m_shahriarnazim",
-    "https://t.me/m_shahriarnazim"
-  ],
-  [
-    "fa-brands fa-linkedin",
-    "LinkedIn",
-    "Connect professionally",
-    "https://bd.linkedin.com/in/m-shahriarnazim"
-  ],
-  [
-    "fa-brands fa-facebook",
-    "Facebook Profile",
-    "Facebook Profile",
-    "https://www.facebook.com/m.shahriarnazim"
-  ],
-  [
-    "fa-brands fa-facebook-f",
-    "Facebook Page",
-    "Official Page",
-    "https://www.facebook.com/muhammadshahriarnazimofficial"
-  ],
-  [
-    "fa-brands fa-x-twitter",
-    "X",
-    "@mshahriarnazim",
-    "https://x.com/mshahriarnazim"
-  ],
-  [
-    "fa-brands fa-instagram",
-    "Instagram",
-    "@m_shahriarnazim",
-    "https://www.instagram.com/m_shahriarnazim"
-  ],
-  [
-    "fa-brands fa-threads",
-    "Threads",
-    "@m_shahriarnazim",
-    "https://www.threads.net/@m_shahriarnazim"
-  ],
-  [
-    "fa-brands fa-youtube",
-    "YouTube",
-    "@mshahriarnazim",
-    "https://www.youtube.com/@mshahriarnazim"
+    ["fa-regular fa-envelope", "Email", "muhammadshahriarnazim@gmail.com", "mailto:muhammadshahriarnazim@gmail.com"],
+    ["fa-brands fa-whatsapp", "WhatsApp", "01994171144", "https://wa.me/8801994171144"],
+    ["fa-solid fa-phone", "Phone", "01994171144", "tel:+8801994171144"],
+    ["fa-brands fa-telegram", "Telegram", "@m_shahriarnazim", "https://t.me/m_shahriarnazim"],
+    ["fa-brands fa-linkedin", "LinkedIn", "Connect with me professionally", "https://bd.linkedin.com/in/m-shahriarnazim"],
+    ["fa-brands fa-facebook", "Facebook Profile", "Visit my Facebook profile", "https://www.facebook.com/m.shahriarnazim"],
+    ["fa-brands fa-facebook-f", "Facebook Page", "Muhammad Shahriar Nazim Official", "https://www.facebook.com/muhammadshahriarnazimofficial"],
+    ["fa-brands fa-x-twitter", "X (Twitter)", "@mshahriarnazim", "https://x.com/mshahriarnazim"],
+    ["fa-brands fa-instagram", "Instagram", "@m_shahriarnazim", "https://www.instagram.com/m_shahriarnazim"],
+    ["fa-brands fa-threads", "Threads", "@m_shahriarnazim", "https://www.threads.net/@m_shahriarnazim"],
+    ["fa-brands fa-youtube", "YouTube", "@mshahriarnazim", "https://www.youtube.com/@mshahriarnazim"]
   ]
-]
 };
 /* ===================================================== */
 
@@ -1301,14 +1246,11 @@ function closeAll(){ $('#lb').classList.remove('open'); $('#modal').classList.re
 document.addEventListener('click', e => { if(e.target.matches('[data-close]') || e.target.id==='lb' || e.target.id==='modal') closeAll(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeAll(); });
 
+/* Contact */
 $('#ways').innerHTML = SITE.contacts.map(([ic,n,t,u]) =>
-$('#ways').innerHTML = SITE.contacts.map(([ic,n,t,u]) =>
-  `<a class="way" href="${esc(u)}" target="_blank" rel="noopener">
-    <i class="${ic}"></i>
-    <span><small>${esc(n)}</small>${esc(t)}</span>
-  </a>`
+  `<a class="way" href="${esc(u)}" target="_blank" rel="noopener" aria-label="${esc(n)}" title="${esc(n)}"><i class="${esc(ic)}" aria-hidden="true"></i><span><small>${esc(n)}</small>${esc(t)}</span></a>`
 ).join('');
-  $('#form').addEventListener('submit', e => {
+$('#form').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
   const body = `${f.get('msg')}\n\n— ${f.get('name')} (${f.get('email')})`;

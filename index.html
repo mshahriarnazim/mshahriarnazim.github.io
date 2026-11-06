@@ -734,13 +734,26 @@ html.light-mode #home .btn.ghost {
 .cv-contact {
   margin-top: 12px;
   overflow-wrap: anywhere;
+  text-align: left;
 }
 
 .cv-contact p {
   margin: 4px 0;
   color: var(--text);
+  text-align: left;
+}
+.cv-more summary {
+  color: var(--gold);
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 18px;
+  padding: 10px 0;
+  list-style: none;
 }
 
+.cv-more summary::-webkit-details-marker {
+  display: none;
+  
 .cv-block {
   margin-top: 28px;
 }
@@ -809,10 +822,11 @@ html.light-mode #home .btn.ghost {
     padding: 17px;
   }
 
-  .cv-header {
-    flex-direction: column;
-    text-align: center;
-  }
+.cv-header {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
 
   .cv-photo {
     width: 145px;
@@ -1200,7 +1214,8 @@ html.light-mode #home .btn.ghost {
           </div>
         </div>
       </div>
-
+<details class="cv-more">
+  <summary>আরও দেখুন →</summary>
       <div class="cv-block">
         <h3>Professional Profile</h3>
         <p>
@@ -1326,7 +1341,7 @@ html.light-mode #home .btn.ghost {
           sharing.
         </p>
       </div>
-
+</details>
     </div>
   </div>
   </section>

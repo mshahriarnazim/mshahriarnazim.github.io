@@ -753,7 +753,8 @@ html.light-mode #home .btn.ghost {
 
 .cv-more summary::-webkit-details-marker {
   display: none;
-  
+}
+
 .cv-block {
   margin-top: 28px;
 }
@@ -818,23 +819,57 @@ html.light-mode #home .btn.ghost {
 }
 
 @media(max-width:600px) {
-  .cv-container {
-    padding: 17px;
+  /* CV only: keep the photo and personal details side by side,
+     while allowing all text to wrap inside the screen. */
+  #cv .cv-container {
+    padding: 12px;
+    max-width: 100%;
+    overflow: hidden;
   }
 
-.cv-header {
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-  .cv-photo {
-    width: 145px;
-    height: 160px;
+  #cv .cv-header {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 10px;
+    min-width: 0;
+    text-align: left;
   }
 
-  .cv-header h3 {
-    font-size: 22px;
+  #cv .cv-photo {
+    width: 92px;
+    height: 120px;
+    flex: 0 0 92px;
+    max-width: 38%;
+    object-fit: cover;
+  }
+
+  #cv .cv-header > div {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  #cv .cv-header h3 {
+    font-size: 15px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  #cv .cv-header p,
+  #cv .cv-contact p {
+    font-size: 11px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  #cv .cv-contact {
+    min-width: 0;
+    margin-top: 7px;
+    overflow-wrap: anywhere;
   }
 }
 

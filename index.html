@@ -691,6 +691,139 @@ html.light-mode #home .en {
 html.light-mode #home .btn.ghost {
   color: var(--text);
 }
+/* ===== MY CURRICULUM VITAE DESIGN ===== */
+
+#cv {
+  background: var(--mist);
+}
+
+.cv-container {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.08);
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.cv-photo {
+  width: 150px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid var(--gold);
+}
+
+.cv-header h3 {
+  font-size: 27px;
+  color: var(--gold);
+}
+
+.cv-header p {
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.cv-contact {
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+.cv-contact p {
+  margin: 4px 0;
+  color: var(--text);
+}
+
+.cv-block {
+  margin-top: 28px;
+}
+
+.cv-block h3 {
+  color: var(--gold);
+  font-size: 21px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.cv-block p {
+  margin: 7px 0;
+  color: var(--text);
+}
+
+.cv-item {
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 15px;
+  margin-bottom: 12px;
+}
+
+.cv-item h4 {
+  font-size: 17px;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.cv-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.cv-skills span {
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 7px 13px;
+  font-size: 14px;
+}
+
+.cv-book {
+  background: var(--mist);
+  border-left: 4px solid var(--gold);
+  padding: 17px;
+  border-radius: 10px;
+}
+
+.cv-download {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 11px 22px;
+  background: var(--gold);
+  color: #17202b;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media(max-width:600px) {
+  .cv-container {
+    padding: 17px;
+  }
+
+  .cv-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cv-photo {
+    width: 145px;
+    height: 160px;
+  }
+
+  .cv-header h3 {
+    font-size: 22px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -703,7 +836,7 @@ html.light-mode #home .btn.ghost {
     <ul class="links" id="links">
       <li><a href="#home">হোম</a></li>
       <li><a href="#about">আমার পরিচয়</a></li>
-      <li><a href="#results">পরীক্ষার ফলাফল</a></li>
+      <li><a href="#cv">My Curriculum Vitae (CV)</a></li>
       <li><a href="#life">আমার জীবন</a></li>
       <li><a href="#life-events">জীবনের উল্লেখযোগ্য ঘটনাবলী</a></li>
       <li><a href="#gallery">ছবির গ্যালারি</a></li>
@@ -1040,57 +1173,163 @@ html.light-mode #home .btn.ghost {
   </div>
 </section>
 
-  <section id="education">
-
+  <section id="cv">
   <div class="wrap">
+
     <div class="sec-head">
-      <h2>বর্তমান শিক্ষাগত যোগ্যতা</h2>
-      <p>জ্ঞান অর্জনের পথে আমার বর্তমান শিক্ষাযাত্রা।</p>
+      <h2>“My Curriculum Vitae (CV)”</h2>
+      <p>Personal Profile, Education, Skills and Achievements</p>
     </div>
 
-    <div class="result-grid">
-      <div class="result-card">
-        <h3>ফাজিল (স্নাতক)</h3>
-        <p><strong>প্রতিষ্ঠান:</strong></p>
-        <p>ছারছীনা দারুসসুন্নাত কামিল মাদরাসা</p>
-        <span>ইসলামি উচ্চশিক্ষা</span>
+    <div class="cv-container">
+
+      <div class="cv-header">
+        <img src="cv-photo.jpg"
+             alt="Muhammad Shahriar Nazim"
+             class="cv-photo">
+
+        <div>
+          <h3>MUHAMMAD SHAHRIAR NAZIM</h3>
+          <p>Student | Writer | Islamic History Enthusiast</p>
+
+          <div class="cv-contact">
+            <p>📍 Kathalbari, Kurigram Sadar, Kurigram, Bangladesh</p>
+            <p>📞 01994171144</p>
+            <p>✉️ muhammadshahriarnazim@gmail.com</p>
+            <p>🌐 mshahriarnazim.github.io</p>
+          </div>
+        </div>
       </div>
 
-      <div class="result-card">
-        <h3>অনার্স</h3>
-        <p><strong>বিভাগ:</strong></p>
-        <p>ইসলামের ইতিহাস ও সংস্কৃতি</p>
-        <p><strong>প্রতিষ্ঠান:</strong></p>
-        <p>ব্রজমোহন সরকারি কলেজ</p>
-        <span>স্নাতক সম্মান</span>
+      <div class="cv-block">
+        <h3>Professional Profile</h3>
+        <p>
+          A dedicated student with a strong interest in Islamic
+          studies, history, writing, research and continuous
+          learning. Passionate about reading, writing, exploring
+          history and sharing knowledge through personal writing
+          and digital platforms.
+        </p>
       </div>
+
+      <div class="cv-block">
+        <h3>Educational Qualifications</h3>
+
+        <div class="cv-item">
+          <h4>Fazil – 2nd Year (Hadith)</h4>
+          <p><strong>Institution:</strong> Sarsina Darussunnat Kamil Madrasah</p>
+          <p><strong>Academic Year:</strong> 2025–Present</p>
+        </div>
+
+        <div class="cv-item">
+          <h4>Alim (HSC Equivalent)</h4>
+          <p><strong>Institution:</strong> Sarsina Darussunnat Kamil Madrasah</p>
+          <p><strong>Group:</strong> Arts</p>
+          <p><strong>Passing Year:</strong> 2024</p>
+          <p><strong>GPA:</strong> 5.00</p>
+        </div>
+
+        <div class="cv-item">
+          <h4>Dakhil (SSC Equivalent)</h4>
+          <p><strong>Institution:</strong> Kathalbari Nurullah Fazil Degree Madrasah</p>
+          <p><strong>Group:</strong> Science</p>
+          <p><strong>Passing Year:</strong> 2022</p>
+          <p><strong>GPA:</strong> 4.78</p>
+        </div>
+      </div>
+
+      <div class="cv-block">
+        <h3>Skills & Areas of Knowledge</h3>
+        <div class="cv-skills">
+          <span>Bengali Communication</span>
+          <span>English Communication</span>
+          <span>Arabic Speaking</span>
+          <span>Writing & Content Creation</span>
+          <span>Quran Recitation</span>
+          <span>Tajweed</span>
+          <span>Islamic Studies</span>
+          <span>Islamic History</span>
+          <span>Research & Information Gathering</span>
+          <span>Reading & Learning</span>
+          <span>Basic Computer Skills</span>
+          <span>Website Management</span>
+          <span>Digital Content Organization</span>
+        </div>
+      </div>
+
+      <div class="cv-block">
+        <h3>Training & Learning Experience</h3>
+        <div class="cv-item">
+          <h4>Quran Learning and Training</h4>
+          <p><strong>Location:</strong> Sylhet, Bangladesh</p>
+          <p>
+            Participated in Quran learning and training in Sylhet.
+            Gained experience in a structured educational
+            environment and developed an interest in Quranic
+            studies and religious education.
+          </p>
+        </div>
+      </div>
+
+      <div class="cv-block">
+        <h3>Writing & Published Book</h3>
+        <div class="cv-book">
+          <h4>শত রণাঙ্গনে মুসলিম উম্মাহ</h4>
+          <p><strong>Author:</strong> Muhammad Shahriar Nazim</p>
+          <p><strong>Publication Status:</strong> Published</p>
+        </div>
+      </div>
+
+      <div class="cv-block">
+        <h3>Digital Project</h3>
+        <div class="cv-item">
+          <h4>Personal Website</h4>
+          <p>
+            Created and manage a personal website to share
+            personal writings, life experiences and educational
+            content.
+          </p>
+          <p>
+            <a href="https://mshahriarnazim.github.io/"
+               target="_blank">
+              Visit My Website
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="cv-block">
+        <h3>Language Proficiency</h3>
+        <p><strong>Bengali:</strong> Fluent</p>
+        <p><strong>English:</strong> Basic to Intermediate</p>
+        <p><strong>Arabic:</strong> Basic to Intermediate</p>
+      </div>
+
+      <div class="cv-block">
+        <h3>Personal Interests</h3>
+        <div class="cv-skills">
+          <span>Reading</span>
+          <span>Writing</span>
+          <span>Learning</span>
+          <span>Travelling</span>
+          <span>History</span>
+          <span>Islamic Education</span>
+        </div>
+      </div>
+
+      <div class="cv-block">
+        <h3>Career Objective</h3>
+        <p>
+          To continue learning, improve my academic and
+          professional abilities, and contribute positively
+          through education, writing, research and knowledge
+          sharing.
+        </p>
+      </div>
+
     </div>
   </div>
-</section>
-<section id="results">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>আমার পরীক্ষার ফলাফল</h2>
-      <p>শিক্ষাজীবনের অর্জন ও সাফল্য</p>
-    </div>
-
-    <div class="result-grid">
-      <div class="result-card">
-        <h3>দাখিল</h3>
-        <p>পরীক্ষার সাল: ২০২২</p>
-        <div class="gpa">4.78</div>
-        <span>GPA · ৫.০০-এর মধ্যে</span>
-      </div>
-
-      <div class="result-card">
-        <h3>আলিম</h3>
-        <p>পরীক্ষার সাল: ২০২৪</p>
-        <div class="gpa">5.00</div>
-        <span>GPA · ৫.০০-এর মধ্যে</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 <section id="books">
   <div class="wrap">
     <div class="sec-head">

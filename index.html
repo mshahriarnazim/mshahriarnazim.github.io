@@ -455,6 +455,54 @@ margin: 5px 0;
   min-height: 320px !important;
   height: auto !important;
 } 
+  /* MOBILE PROFILE FIX */
+@media (max-width: 600px) {
+  #home .hero {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
+  #home .photo {
+    width: 200px !important;
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  #home .photo img {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  #home .intro {
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    text-align: center !important;
+  }
+
+  #home .profile-details {
+    width: 100% !important;
+    text-align: center !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  #home .profile-details p {
+    text-align: center !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  #home .cta {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
  /* ===== NEW GALLERY DESIGN ===== */
 
 .album-list {

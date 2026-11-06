@@ -401,60 +401,7 @@ margin: 5px 0;
     min-height: 300px;
   }
 
-  #home .intro {
-    flex: 1 !important;
-    min-width: 0 !important;
-  }
 
-  #home .intro h1 {
-    font-size: 20px !important;
-  }
-
-  #home .intro .bio {
-    font-size: 13px !important;
-  }
-
-  #home .profile-details {
-    font-size: 12px !important;
-    overflow-wrap: anywhere;
-  }
-
-  #home .cta {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-
-  #home .btn {
-    font-size: 12px !important;
-    padding: 8px 10px !important;
-  }
-  }
-  }
-             /* FIX EQUAL PHOTO AND DETAILS HEIGHT */
-
-#home .hero {
-  display: flex !important;
-  align-items: stretch !important;
-}
-
-#home .photo {
-  min-height: 320px !important;
-  height: auto !important;
-  align-self: stretch !important;
-}
-
-#home .photo img {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-}
-
-#home .intro {
-  min-height: 320px !important;
-  height: auto !important;
-} 
   /* MOBILE PROFILE FIX */
 @media (max-width: 600px) {
   #home .hero {
@@ -801,7 +748,7 @@ html.light-mode #home .btn.ghost {
 
 .cv-more summary::-webkit-details-marker {
   display: none;
-  
+}
 .cv-block {
   margin-top: 28px;
 }
@@ -871,20 +818,44 @@ html.light-mode #home .btn.ghost {
   }
 
 .cv-header {
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 12px;
+  }
 
   .cv-photo {
-    width: 145px;
-    height: 160px;
+    width: 115px;
+    height: 150px;
+    flex: 0 0 115px;
+    object-fit: cover;
+  }
+
+  .cv-header > div {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .cv-header h3 {
-    font-size: 22px;
+    font-size: 18px;
+    overflow-wrap: anywhere;
   }
-}
+
+  .cv-header p,
+  .cv-contact p {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-align: left;
+  }
+
+  .cv-contact {
+    margin-top: 8px;
+  }
 
 </style>
 </head>

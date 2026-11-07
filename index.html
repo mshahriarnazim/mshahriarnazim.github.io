@@ -1798,9 +1798,14 @@ videos: [
     src: "Videos/যে জাতি নিজের ইতিহাস জানে না_ সে জাতি কখনো সফলতা অর্জন করতে প.mp4",
     title: "যে জাতি নিজের ইতিহাস জানে না",
     desc: "নিজের ইতিহাস জানা একটি জাতির আত্মপরিচয় ও ভবিষ্যৎ গঠনের গুরুত্বপূর্ণ ভিত্তি।"
+  },
+  {
+    album: "ইতিহাস",
+    youtube: "AI0TLh6cVMQ",
+    title: "ইতিহাস বিষয়ক ভিডিও",
+    desc: "ইতিহাসের গুরুত্বপূর্ণ আলোচনা।"
   }
 ],
-  posts: [                              // ← {title, date, text:[অনুচ্ছেদ...]}
     {title:"আমার প্রথম লেখা",date:"আজকের তারিখ",text:["এখানে আপনার প্রথম ব্লগ পোস্ট লিখুন। প্রতিটি অনুচ্ছেদ আলাদা লাইনে রাখুন।","আপনার অভিজ্ঞতা, শেখা বিষয় বা প্রিয় স্মৃতি লিখতে পারেন।"]},
     {title:"যা আমি শিখেছি",date:"আজকের তারিখ",text:["জীবন থেকে শেখা গুরুত্বপূর্ণ শিক্ষাগুলো এখানে লিখুন।"]},
     {title:"একটি স্মরণীয় ভ্রমণ",date:"আজকের তারিখ",text:["আপনার প্রিয় ভ্রমণের গল্প এখানে লিখুন।"]}
@@ -1857,7 +1862,7 @@ $('#timeline').innerHTML = SITE.life.map(([y,t,d]) =>
 ).join('');
 
 /* Gallery */
-  /* VIDEO GALLERY */
+/* VIDEO GALLERY */
 
 let currentVideoAlbum = "ইতিহাস";
 
@@ -1873,9 +1878,24 @@ function drawVideoGrid() {
   $("#videoGrid").innerHTML = videos.map(v => `
     <div class="album-card">
       <h3>${esc(v.title)}</h3>
-      <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;background:#000;">
-        <source src="${esc(v.src)}" type="video/mp4">
-      </video>
+
+      ${v.youtube ? `
+        <div style="width:100%;max-width:480px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border-radius:12px;background:#000;">
+          <iframe
+            src="https://www.youtube.com/embed/${encodeURIComponent(v.youtube)}"
+            title="${esc(v.title)}"
+            style="width:100%;height:100%;border:0;"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      ` : `
+        <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;background:#000;">
+          <source src="${esc(v.src)}" type="video/mp4">
+        </video>
+      `}
+
       <p>${esc(v.desc)}</p>
     </div>
   `).join("");

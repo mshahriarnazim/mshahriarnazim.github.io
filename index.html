@@ -1135,6 +1135,36 @@ background: transparent !important;
 #cv .cv-item h4 {
   font-size: 17px;
 }
+  /* Desktop Video Gallery Design */
+@media (min-width: 821px) {
+
+  #videos #videoGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+  }
+
+  #videos #videoGrid .album-card {
+    width: 520px !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  #videos #videoGrid .album-card video {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+
+  #videos #videoGrid .album-card > div {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
 </style>
 </head>
 <body>

@@ -516,41 +516,28 @@ margin: 5px 0;
   cursor: pointer;
 }
 
-/* Personal Photo Gallery: 4 Images Per Row */
-
 .album-photos {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   margin-top: 22px;
 }
 
 .album-photo {
   width: 100%;
-  min-width: 0;
+  max-width: 500px;
   text-align: center;
 }
 
 .album-photo img {
-  display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  object-fit: cover;
-  border-radius: 9px;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 16px;
   cursor: pointer;
 }
 
-.album-photo p {
-  font-size: 11px;
-  line-height: 1.3;
-  margin-top: 4px;
-  overflow-wrap: anywhere;
-}
-/* Extra spacing after every 12 photos */
-.album-photo:nth-child(n+13):nth-child(12n+1) {
-  margin-top: 12px;
-}
 @media(max-width:600px) {
   .album-card {
     padding: 15px;
@@ -1813,7 +1800,7 @@ const SITE = {
     {album:"ব্যক্তিগত",src:"InShot_20260911_152548171.jpg",cap:"ব্যক্তিগত স্মৃতি ৫",emoji:"📸"},
     {album:"ব্যক্তিগত",src:"InShot_20260907_213124947.jpg",cap:"ব্যক্তিগত স্মৃতি ৬",emoji:"📸"},
     {album:"ব্যক্তিগত",src:"InShot_20260907_211227103.jpg",cap:"ব্যক্তিগত স্মৃতি ৭",emoji:"📸"},
-    {album:"ব্যক্তিগত",src:"InShot_20260907_211014227.jpg",cap:"ব্যক্তিগত স্মৃতি ৮",emoji:"📸"},
+    {album:"ব্যক্তিগত",src:"IMG_2909.HEIC",cap:"ব্যক্তিগত স্মৃতি ৮",emoji:"📸"},
     {album:"ব্যক্তিগত",src:"file_000000009bcc82119d7a5323f38bcbf8.png",cap:"ব্যক্তিগত স্মৃতি ৯",emoji:"📸"},
     {album:"ব্যক্তিগত",src:"InShot_20260826_115926031.jpg",cap:"ব্যক্তিগত স্মৃতি ১০",emoji:"📸"},
     {album:"ব্যক্তিগত",src:"20260821_174546.jpg",cap:"ব্যক্তিগত স্মৃতি ১১",emoji:"📸"},
@@ -1824,24 +1811,6 @@ const SITE = {
     {album:"ব্যক্তিগত",src:"Screenshot_20260725_112248_X.jpg",cap:"ব্যক্তিগত স্মৃতি ১৬",emoji:"📸"},
     {album:"পরিবার",src:"",cap:"ঈদের আনন্দ",emoji:"🌙"},
     {album:"বন্ধুরা",src:"",cap:"স্মরণীয় দিন",emoji:"📸"}
-    {album:"ব্যক্তিগত",src:"InShot_20260321_192606318.jpg",cap:"ব্যক্তিগত স্মৃতি ১৭",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"InShot_20260321_192011675.jpg",cap:"ব্যক্তিগত স্মৃতি ১৮",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"InShot_20240412_141320189.jpg",cap:"ব্যক্তিগত স্মৃতি ১৯",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG-20260218-WA0011.jpg",cap:"ব্যক্তিগত স্মৃতি ২০",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_16833604900823002.jpg",cap:"ব্যক্তিগত স্মৃতি ২১",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20251026_023632.jpg",cap:"ব্যক্তিগত স্মৃতি ২২",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20250319_172914.jpg",cap:"ব্যক্তিগত স্মৃতি ২৩",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20250311_142009.jpg",cap:"ব্যক্তিগত স্মৃতি ২৪",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20250228_181712.jpg",cap:"ব্যক্তিগত স্মৃতি ২৫",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20250225_205648_328.png.webp",cap:"ব্যক্তিগত স্মৃতি ২৬",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20240924_185151_866.png",cap:"ব্যক্তিগত স্মৃতি ২৭",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20240921_224037.jpg",cap:"ব্যক্তিগত স্মৃতি ২৮",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20240315_150819_060 (1).jpg",cap:"ব্যক্তিগত স্মৃতি ২৯",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"IMG_20230623_160849.jpg",cap:"ব্যক্তিগত স্মৃতি ৩০",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"1756781144420.jpg",cap:"ব্যক্তিগত স্মৃতি ৩১",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"1681760347406.jpg",cap:"ব্যক্তিগত স্মৃতি ৩২",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"20221111_215138.jpg",cap:"ব্যক্তিগত স্মৃতি ৩৩",emoji:"📸"},
-{album:"ব্যক্তিগত",src:"20260819_070322.jpg",cap:"ব্যক্তিগত স্মৃতি ৩৪",emoji:"📸"},
   ],
   videoAlbums: ["ব্যক্তিগত", "ইতিহাস", "বন্ধুবান্ধব", "অন্যান্য"],
 videos: [
@@ -2037,24 +2006,10 @@ $('#grid').addEventListener('click', e => {
   }
 
   const img = e.target.closest('.album-photo img, .album-preview img');
-
-if (img) {
-  const src = img.getAttribute('src');
-  const caption = img.alt || "ব্যক্তিগত ছবি";
-
-  $('#lbFig').innerHTML = `
-    <img src="${esc(src)}" alt="${esc(caption)}">
-    <figcaption>
-      ${esc(caption)}
-      <br>
-      <a class="lb-download" href="${esc(src)}" download>
-        ⬇ Download
-      </a>
-    </figcaption>
-  `;
-
-  $('#lb').classList.add('open');
-}
+  if (img) {
+    $('#lbFig').innerHTML = `<img src="${esc(img.src)}" alt="">`;
+    $('#lb').classList.add('open');
+  }
 });
 
 drawTabs();

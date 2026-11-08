@@ -516,26 +516,36 @@ margin: 5px 0;
   cursor: pointer;
 }
 
+/* Personal Photo Gallery: 4 Images Per Row */
+
 .album-photos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
   margin-top: 22px;
 }
 
 .album-photo {
   width: 100%;
-  max-width: 500px;
+  min-width: 0;
   text-align: center;
 }
 
 .album-photo img {
+  display: block;
   width: 100%;
-  max-height: 420px;
-  object-fit: contain;
-  border-radius: 16px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: 9px;
   cursor: pointer;
+}
+
+.album-photo p {
+  font-size: 11px;
+  line-height: 1.3;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
 }
 
 @media(max-width:600px) {

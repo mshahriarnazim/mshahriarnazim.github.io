@@ -547,7 +547,10 @@ margin: 5px 0;
   margin-top: 4px;
   overflow-wrap: anywhere;
 }
-
+/* Extra spacing after every 12 photos */
+.album-photo:nth-child(n+13):nth-child(12n+1) {
+  margin-top: 12px;
+}
 @media(max-width:600px) {
   .album-card {
     padding: 15px;
@@ -2016,10 +2019,24 @@ $('#grid').addEventListener('click', e => {
   }
 
   const img = e.target.closest('.album-photo img, .album-preview img');
-  if (img) {
-    $('#lbFig').innerHTML = `<img src="${esc(img.src)}" alt="">`;
-    $('#lb').classList.add('open');
-  }
+
+if (img) {
+  const src = img.getAttribute('src');
+  const caption = img.alt || "ব্যক্তিগত ছবি";
+
+  $('#lbFig').innerHTML = `
+    <img src="${esc(src)}" alt="${esc(caption)}">
+    <figcaption>
+      ${esc(caption)}
+      <br>
+      <a class="lb-download" href="${esc(src)}" download>
+        ⬇ Download
+      </a>
+    </figcaption>
+  `;
+
+  $('#lb').classList.add('open');
+}
 });
 
 drawTabs();

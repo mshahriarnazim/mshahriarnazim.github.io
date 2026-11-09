@@ -1,0 +1,127 @@
+name: Automatically Update CV PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+    - 'index.html'
+      - '.github/workflows/update-cv-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-cv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Generate CV PDF
+        run: |
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const path = require('path');
+
+          (async () => {
+            const browser = await chromium.launch({
+              headless: true
+            });
+
+            const page = await browser.newPage({
+              viewport: { width: 1200, height: 1600 }
+            });
+
+            await page.goto(
+              'file://' + path.resolve('index.html'),
+              { waitUntil: 'networkidle' }
+            );
+
+            await page.evaluate(() => {
+              document.querySelectorAll('#cv details')
+                .forEach(item => item.open = true);
+            });
+
+            await page.addStyleTag({
+              content: `
+                @media print {
+                  body > * {
+                    display: none !important;
+                  }
+
+                  body > #cv {
+                    display: block !important;
+                    position: absolute !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    padding: 10px !important;
+                    background: #ffffff !important;
+                    color: #17202b !important;
+                  }
+
+                  #cv .cv-container {
+                    box-shadow: none !important;
+                    background: #ffffff !important;
+                    color: #17202b !important;
+                  }
+
+                  #cv .cv-more summary {
+                    display: none !important;
+                  }
+
+                  #cv .cv-block h3,
+                  #cv .cv-header h3 {
+                    color: #b88620 !important;
+                  }
+
+                  #cv .cv-item,
+                  #cv .cv-book {
+                    break-inside: avoid;
+                  }
+
+                  #cv * {
+                    print-color-adjust: exact !important;
+                    -webkit-print-color-adjust: exact !important;
+                  }
+                }
+              `
+            });
+
+            await page.evaluate(() => document.fonts.ready);
+
+            await page.pdf({
+              path: 'personal-biography.pdf',
+              format: 'A4',
+              printBackground: true,
+              preferCSSPageSize: true,
+              margin: {
+                top: '12mm',
+                bottom: '12mm',
+                left: '12mm',
+                right: '12mm'
+              }
+            });
+
+            await browser.close();
+          })();
+          NODE
+
+      - name: Save updated PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Automatically update CV PDF
+          file_pattern: personal-biography.pdf

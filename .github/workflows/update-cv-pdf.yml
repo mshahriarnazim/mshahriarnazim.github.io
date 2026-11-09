@@ -50,6 +50,35 @@ jobs:
               document.querySelectorAll('#cv details')
                 .forEach(item => item.open = true);
             });
+            await page.evaluate(() => {
+              const cv = document.querySelector('#cv .cv-container');
+              const contacts = document.querySelectorAll('#ways a.way');
+
+              if (!cv || !contacts.length) return;
+
+              const section = document.createElement('div');
+              section.className = 'cv-block';
+
+              const heading = document.createElement('h3');
+              heading.textContent = 'Social Media & Contact Information';
+              section.appendChild(heading);
+
+              const list = document.createElement('ol');
+
+              contacts.forEach(item => {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+
+                link.href = item.href;
+                link.textContent = item.innerText.trim();
+
+                li.appendChild(link);
+                list.appendChild(li);
+              });
+
+              section.appendChild(list);
+              cv.appendChild(section);
+            });
 
             await page.addStyleTag({
               content: `

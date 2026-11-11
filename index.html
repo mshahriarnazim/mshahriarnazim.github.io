@@ -1196,6 +1196,14 @@ background: transparent !important;
   font-size: 14px !important;
   line-height: 1.6 !important;
 }
+
+/* Mobile: slightly smaller text under Family Background, Permanent Address and Personal Details. */
+@media (max-width: 600px) {
+  #cv .cv-personal-small p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1212,8 +1220,8 @@ background: transparent !important;
       <li><a href="#cv">My Curriculum Vitae (CV)</a></li>
       <li><a href="#books">প্রকাশিত বই</a></li>
       <li><a href="#life-events">জীবনের উল্লেখযোগ্য ঘটনাবলী</a></li>
-      <li><a href="#videos">ভিডিও গ্যালারি</a></li>
       <li><a href="#gallery">ছবির গ্যালারি</a></li>
+      <li><a href="#videos">ভিডিও গ্যালারি</a></li>
       <li><a href="#contact">যোগাযোগ</a></li>
     </ul>
   </div>
@@ -1296,11 +1304,11 @@ background: transparent !important;
       </div>
 <details class="cv-more">
   <summary>আরও দেখুন →</summary>
-      <div class="cv-block">
+      <div class="cv-block cv-personal-small">
   <h3>Family Background</h3>
   <p>I belong to a middle-class family of four members. My family consists of my father, mother, younger sister, and me. I am the eldest son of my family. My younger sister's name is Nusrat Jahan Riya. I grew up in a loving and supportive family.</p>
         </div>
-  <div class="cv-block">
+  <div class="cv-block cv-personal-small">
   <h3>Permanent Address</h3>
   <p><strong>Village:</strong> Shibram Fakirpara</p>
   <p><strong>Post Office:</strong> Kathalbari</p>
@@ -1309,7 +1317,7 @@ background: transparent !important;
   <p><strong>District:</strong> Kurigram</p>
   <p><strong>Country:</strong> Bangladesh</p>
   </div>
-  <div class="cv-block">
+  <div class="cv-block cv-personal-small">
   <h3>Personal Details</h3>
   <p><strong>Date of Birth:</strong> 22 October 2005</p>
   </div>
@@ -1757,6 +1765,18 @@ background: transparent !important;
   </div>
 </section>
 
+<section id="gallery">
+  <!-- Video Gallery -->
+
+  <div class="wrap">
+    <div class="sec-head"><h2>ছবির গ্যালারি</h2><p>অ্যালবাম বেছে নিন, ছবিতে ক্লিক করলে বড় হবে।</p></div>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+
+
 <section id="videos">
   <div class="wrap">
     <div class="sec-head">
@@ -1766,16 +1786,6 @@ background: transparent !important;
 
     <div class="tabs" id="videoTabs"></div>
     <div class="album-list" id="videoGrid"></div>
-  </div>
-</section>
-
-<section id="gallery">
-  <!-- Video Gallery -->
-
-  <div class="wrap">
-    <div class="sec-head"><h2>ছবির গ্যালারি</h2><p>অ্যালবাম বেছে নিন, ছবিতে ক্লিক করলে বড় হবে।</p></div>
-    <div class="tabs" id="tabs"></div>
-    <div class="grid" id="grid"></div>
   </div>
 </section>
 

@@ -1204,27 +1204,32 @@ background: transparent !important;
     line-height: 1.6 !important;
   }
 }
-  /* ===== Deep Glass Effect – শুধু Home ===== */
+/* ===== Deep Glossy Glass (রেফারেন্স স্টাইল) ===== */
 #home .hero {
   position: relative !important;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.13) 0%,
-    rgba(170, 150, 255, 0.09) 45%,
-    rgba(90, 130, 255, 0.07) 100%
-  ) !important;
-  backdrop-filter: blur(24px) saturate(1.5) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(1.5) !important;
-  border: 1px solid rgba(255, 255, 255, 0.32) !important;
-  border-radius: 28px !important;
-  padding: 26px 30px !important;
+  background: 
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(200, 180, 255, 0.12) 25%,
+      rgba(120, 140, 255, 0.08) 55%,
+      rgba(80, 100, 200, 0.06) 100%
+    ) !important;
+  backdrop-filter: blur(28px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.8) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 26px !important;
+  padding: 24px 28px !important;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-    0 28px 55px -14px rgba(0, 0, 0, 0.5),
-    0 0 45px rgba(140, 120, 255, 0.18) !important;
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 1px rgba(255, 255, 255, 0.25) inset,
+    0 30px 60px -15px rgba(0, 0, 0, 0.55),
+    0 0 50px rgba(140, 120, 255, 0.25),
+    0 0 20px rgba(180, 160, 255, 0.15) !important;
   overflow: hidden !important;
 }
 
+/* উপরের শক্তিশালী ঝলক (কাচের রিফ্লেকশন) */
 #home .hero::before {
   content: "";
   position: absolute;
@@ -1232,14 +1237,16 @@ background: transparent !important;
   border-radius: inherit;
   background: linear-gradient(
     125deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.12) 16%,
-    transparent 45%
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.25) 12%,
+    rgba(255, 255, 255, 0.05) 28%,
+    transparent 50%
   );
   pointer-events: none;
   z-index: 1;
 }
 
+/* নিচের হালকা বেভেল + গ্লো */
 #home .hero::after {
   content: "";
   position: absolute;
@@ -1247,9 +1254,10 @@ background: transparent !important;
   border-radius: inherit;
   background: linear-gradient(
     to top,
-    rgba(255, 255, 255, 0.14) 0%,
-    transparent 40%
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 45%
   );
+  box-shadow: inset 0 -2px 8px rgba(255, 255, 255, 0.1);
   pointer-events: none;
   z-index: 1;
 }
@@ -1259,14 +1267,16 @@ background: transparent !important;
   z-index: 2;
 }
 
+/* ছবির ফ্রেম আরও গ্লসি */
 #home .photo {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
   border-radius: 18px !important;
-  padding: 6px !important;
+  padding: 5px !important;
   box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    0 0 15px rgba(160, 140, 255, 0.2) !important;
 }
 
 #home .photo img {
@@ -1275,10 +1285,10 @@ background: transparent !important;
 
 @media (max-width: 600px) {
   #home .hero {
-    padding: 16px 14px !important;
+    padding: 14px 12px !important;
     border-radius: 20px !important;
   }
-}
+}  
 </style>
 </head>
 <body>

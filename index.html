@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1120">
+<script>
+/* পেজ আঁকার আগেই থিম বসিয়ে দেয়, যাতে রাতের মোডে সাদা ঝলক না আসে */
+(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.classList.add(t+'-mode');}catch(e){document.documentElement.classList.add('dark-mode');}})();
+</script>
 <title>মুহাম্মাদ শাহরিয়ার নাজিম — স্মৃতির সংগ্রহশালা</title>
 <meta name="description" content="Muhammad Shahriar Nazim — ব্যক্তিগত ওয়েবসাইট, জীবনের স্মৃতি, ছবি ও লেখার সংগ্রহ।">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,6 +15,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
+/* ===== সোলায়মান লিপি (SolaimanLipi) =====
+   ফন্ট ফাইল দুটি index.html এর পাশের ফোল্ডারেই GitHub এ আপলোড করুন:
+   SolaimanLipi.ttf  এবং  SolaimanLipi_Bold.ttf
+   (ফাইলের নামের বড়/ছোট হাতের অক্ষর হুবহু মিলতে হবে)
+   unicode-range থাকায় শুধু বাংলা অক্ষরে এই ফন্ট লাগবে, ইংরেজি লেখা আগের ফন্টেই থাকবে। */
+@font-face{
+  font-family:'SolaimanLipi';
+  src:url('SolaimanLipi.ttf') format('truetype'),
+      local('SolaimanLipi');
+  font-weight:100 599;
+  font-style:normal;
+  font-display:swap;
+  size-adjust:108%;
+  unicode-range:U+0980-09FF,U+200C-200D,U+0964-0965,U+25CC;
+}
+@font-face{
+  font-family:'SolaimanLipi';
+  src:url('SolaimanLipi_Bold.ttf') format('truetype'),
+      local('SolaimanLipi Bold'),
+      local('SolaimanLipi-Bold');
+  font-weight:600 900;
+  font-style:normal;
+  font-display:swap;
+  size-adjust:108%;
+  unicode-range:U+0980-09FF,U+200C-200D,U+0964-0965,U+25CC;
+}
   .theme-toggle {
   background: none;
   border: 1px solid #f2b134;
@@ -23,8 +54,8 @@
 :root{
   --ink:#0f1a2b; --ink2:#18263d; --mist:#eef2f6; --paper:#ffffff;
   --teal:#1f7a8c; --gold:#f2b134; --text:#1c2736; --muted:#5d6b7e; --line:#dbe3ec;
-  --serif:'Noto Serif Bengali','Kalpurush','SolaimanLipi',serif;
-  --sans:'Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
+  --serif:'SolaimanLipi','Noto Serif Bengali','Kalpurush',serif;
+  --sans:'SolaimanLipi','Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root{--mist:#0f1a2b;--paper:#16233a;--text:#e8eef6;--muted:#9fb0c5;--line:#263752}
@@ -1289,6 +1320,155 @@ background: transparent !important;
     border-radius: 20px !important;
   }
 }  
+
+/* =====================================================
+   সোলায়মান লিপি + রাতের নকশা (শেষে বসানো, আগের কিছু মোছা হয়নি)
+   ===================================================== */
+button,input,textarea,select{font-family:inherit}
+html{font-synthesis:none}
+::selection{background:var(--gold);color:#17140a}
+
+:root{
+  --link:#9a6200;
+  --panel:rgba(255,255,255,.72);
+  --edge:rgba(15,26,43,.16);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-op:.05;
+}
+
+/* রাতের রঙ: গাঢ় নীল-কালো আকাশ, প্রদীপের মতো গরম সোনালি আলো */
+html.dark-mode{
+  color-scheme:dark;
+  --ink:#080e1a; --ink2:#101a2c; --mist:#0a1120; --paper:#111b2d;
+  --text:#ece7da; --muted:#a5adba; --line:#223049;
+  --gold:#e9b44c; --teal:#3f9fb0; --link:#f0c062;
+  --panel:rgba(14,23,40,.74);
+  --edge:rgba(233,180,76,.22);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-op:.045;
+}
+html.light-mode{color-scheme:light}
+
+body::after{
+  content:"";position:fixed;inset:0;z-index:200;pointer-events:none;
+  background-image:var(--grain);opacity:var(--grain-op);
+}
+html.dark-mode body{background:var(--mist)}
+
+/* নেভিগেশন: ভরাট বোতামের বদলে নিচে দাগ */
+nav{border-bottom:1px solid rgba(233,180,76,.14)}
+html.dark-mode nav{background:rgba(8,14,26,.86)}
+nav .links a{
+  border-radius:0;padding:6px 10px;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;
+}
+nav .links a:hover,nav .links a.on{background:none;color:#f0c062;border-bottom-color:#e9b44c}
+html.light-mode nav .links a:hover,html.light-mode nav .links a.on{color:#8a5a00;border-bottom-color:#b9791a;background:none}
+.theme-toggle{transition:transform .25s,background .25s}
+.theme-toggle:hover{transform:rotate(-14deg);background:rgba(233,180,76,.14)}
+
+/* সেকশনের শিরোনামের নিচে হাতে আঁকা ঢেউ-দাগ */
+.sec-head::after{
+  width:92px;height:10px;border-radius:0;margin-top:12px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 10'%3E%3Cpath d='M2 6C10 1 16 9 25 5S40 2 48 6 66 9 74 4 86 3 90 6' fill='none' stroke='%23d9a23b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center/contain;
+}
+section+section{border-top:1px solid var(--line)}
+
+/* হিরো: বেগুনি কাচের ঝলক সরিয়ে শান্ত ফলক, ছবি পুরোনো পোলারয়েডের মতো */
+#home{position:relative}
+html.dark-mode #home{
+  background:
+    radial-gradient(1.5px 1.5px at 7% 16%,rgba(255,246,220,.9),transparent 100%),
+    radial-gradient(1px 1px at 17% 58%,rgba(255,246,220,.6),transparent 100%),
+    radial-gradient(1.3px 1.3px at 29% 10%,rgba(255,246,220,.8),transparent 100%),
+    radial-gradient(1px 1px at 41% 74%,rgba(255,246,220,.5),transparent 100%),
+    radial-gradient(1.6px 1.6px at 56% 14%,rgba(255,246,220,.85),transparent 100%),
+    radial-gradient(1px 1px at 66% 66%,rgba(255,246,220,.55),transparent 100%),
+    radial-gradient(1.3px 1.3px at 78% 30%,rgba(255,246,220,.75),transparent 100%),
+    radial-gradient(1px 1px at 91% 78%,rgba(255,246,220,.5),transparent 100%),
+    radial-gradient(1.4px 1.4px at 96% 46%,rgba(255,246,220,.8),transparent 100%),
+    radial-gradient(520px 340px at 90% -8%,rgba(233,180,76,.15),transparent 68%),
+    linear-gradient(180deg,#0a1326,#0a1120);
+}
+html.dark-mode #home::after{
+  content:"";position:absolute;top:150px;right:6%;width:44px;height:44px;border-radius:50%;
+  box-shadow:-13px 6px 0 0 #f1e4b8;opacity:.9;z-index:0;pointer-events:none;
+  filter:drop-shadow(0 0 12px rgba(241,228,184,.4));
+}
+#home .wrap.hero{z-index:1}
+#home .hero{
+  background:var(--panel) !important;
+  -webkit-backdrop-filter:none !important;backdrop-filter:none !important;
+  border:1px solid var(--edge) !important;
+  border-radius:14px !important;
+  box-shadow:0 26px 50px -26px rgba(0,0,0,.65) !important;
+}
+#home .hero::before,#home .hero::after{display:none !important}
+#home .photo{
+  background:#efe6d2 !important;border:0 !important;border-radius:3px !important;
+  padding:0 !important;transform:rotate(-1.6deg);
+  box-shadow:0 14px 26px rgba(0,0,0,.45) !important;
+}
+#home .photo img{
+  inset:7px !important;width:calc(100% - 14px) !important;height:calc(100% - 14px) !important;
+  border:0 !important;border-radius:2px !important;box-shadow:none !important;
+}
+#home .photo::after{
+  content:"";position:absolute;top:-10px;left:50%;width:64px;height:22px;
+  margin-left:-32px;transform:rotate(-4deg);z-index:3;
+  background:rgba(233,180,76,.6);box-shadow:0 1px 3px rgba(0,0,0,.25);
+}
+html.light-mode #home .photo::after{background:rgba(185,121,26,.45)}
+@media(max-width:600px){
+  #home .photo{transform:rotate(-1.2deg)}
+  #home .photo::after{width:40px;height:15px;margin-left:-20px;top:-7px}
+  #home .photo img{inset:5px !important;width:calc(100% - 10px) !important;height:calc(100% - 10px) !important}
+  html.dark-mode #home::after{top:76px;right:4%;width:30px;height:30px;box-shadow:-9px 4px 0 0 #f1e4b8}
+}
+
+/* বোতাম: গোল ক্যাপসুল নয়, ছাপানো ডাক-টিকিটের মতো ছোট ছায়াসহ */
+.btn{
+  border-radius:8px;border-width:2px;
+  box-shadow:3px 3px 0 rgba(0,0,0,.42);
+  transition:transform .15s,box-shadow .15s,background .2s;
+}
+.btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,.42)}
+.btn.fill{color:#17140a}
+.btn.fill:hover{background:#f6c869;border-color:#f6c869;transform:translate(2px,2px)}
+form .btn{color:#fff}
+#books a[download],.cv-download,.lb-download{box-shadow:3px 3px 0 rgba(0,0,0,.42);transition:transform .15s,box-shadow .15s}
+#books a[download]:hover,.cv-download:hover,.lb-download:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,.42)}
+.cv-download,.lb-download{border-radius:8px}
+
+/* কার্ড ও বাক্স: সব জায়গায় একই ছোট বাঁক, পাতলা রেখা */
+.facts,.album-card,.life-event-card,.cv-container,.way,form,.result-card,.post,.sheet{border-radius:12px}
+.cv-item,.cv-book{border-radius:9px}
+.album-preview img,.life-event-card img{border-radius:7px}
+.album-photo img{border-radius:6px;transition:transform .2s}
+.album-photo img:hover{transform:rotate(-1.2deg) scale(1.04)}
+.chip{border-radius:6px;border-style:dashed}
+.cv-skills span{border-radius:6px}
+.tab{border-radius:8px}
+.tab.on,.tab:hover{background:var(--gold);border-color:var(--gold);color:#17140a}
+html.dark-mode .facts,html.dark-mode .album-card,html.dark-mode .life-event-card,
+html.dark-mode .cv-container,html.dark-mode .way,html.dark-mode form{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 14px 30px -20px rgba(0,0,0,.7);
+}
+.way:hover{border-color:var(--gold)}
+input:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(233,180,76,.2)}
+
+/* ডায়েরির পাতার মতো টাইমলাইন */
+.tl{border-left:3px dashed var(--line)}
+.ev time{color:var(--teal)}
+html.dark-mode .ev time{color:#7fcfd0}
+
+/* সোনালি লেখা দিনের মোডেও পড়া যায় এমন রঙে */
+.album-more,.life-more-label,.life-event-info a,.cv-more summary,.cv-block h3,.cv-header h3{color:var(--link)}
+.result-card .gpa{color:var(--link)}
+
+footer{border-top:1px solid rgba(233,180,76,.25);letter-spacing:0}
+html.dark-mode .lb{background:rgba(5,9,17,.94)}
 </style>
 </head>
 <body>
@@ -2216,19 +2396,19 @@ const spy = new IntersectionObserver(es => es.forEach(en => {
 secs.forEach(s => spy.observe(s));
   /* Dark / Light Mode */
 const themeBtn = document.getElementById('themeToggle');
+const rootEl = document.documentElement;
 
-if (localStorage.getItem('theme') === 'light') {
-  document.documentElement.classList.add('light-mode');
-  themeBtn.textContent = '🌙';
+function syncThemeBtn() {
+  themeBtn.textContent = rootEl.classList.contains('light-mode') ? '🌙' : '☀️';
 }
+syncThemeBtn();
 
 themeBtn.addEventListener('click', () => {
-  document.documentElement.classList.toggle('light-mode');
-
-  const isLight = document.documentElement.classList.contains('light-mode');
-
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  themeBtn.textContent = isLight ? '🌙' : '☀️';
+  const toLight = !rootEl.classList.contains('light-mode');
+  rootEl.classList.toggle('light-mode', toLight);
+  rootEl.classList.toggle('dark-mode', !toLight);
+  try { localStorage.setItem('theme', toLight ? 'light' : 'dark'); } catch (e) {}
+  syncThemeBtn();
 });
 </script>
 </body>
